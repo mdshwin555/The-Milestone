@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:shipment_merchent_app/utils/constants/colors.dart';
 import 'package:sizer/sizer.dart';
+import '../../features/personalization/screens/about_us_screen.dart';
+import '../../features/personalization/screens/contact_info_screen.dart';
+import '../../features/personalization/screens/our_teachers_screen.dart';
 import '../../utils/constants/image_strings.dart';
 
 class CustomDrawer extends StatelessWidget {
@@ -98,7 +102,9 @@ class CustomDrawer extends StatelessWidget {
                 fontFamily: 'Cairo',
               ),
             ),
-            onTap: () {},
+            onTap: () {
+              Get.to(AboutUsScreen());
+            },
           ),
           ListTile(
             leading: Icon(
@@ -114,7 +120,10 @@ class CustomDrawer extends StatelessWidget {
                 fontFamily: 'Cairo',
               ),
             ),
-            onTap: () {},
+            onTap: () {
+              Get.to(OurTeachersScreen());
+
+            },
           ),
           ListTile(
             leading: Icon(
@@ -146,7 +155,9 @@ class CustomDrawer extends StatelessWidget {
                 fontFamily: 'Cairo',
               ),
             ),
-            onTap: () {},
+            onTap: () {
+              Get.to(ContactInfoScreen());
+            },
           ),
           ListTile(
             leading: Icon(

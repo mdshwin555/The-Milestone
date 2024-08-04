@@ -18,7 +18,7 @@ class ActionButtonsWidget extends StatelessWidget {
       children: [
         Obx(
               () => TButton(
-            text: controller.isLoading.value ? 'LOADING...' : 'continue',
+            text: controller.isLoading.value ? 'LOADING...' : 'CONTINUE',
             onPressed:(){
               Get.to(AccountCreatedScreen());
             }

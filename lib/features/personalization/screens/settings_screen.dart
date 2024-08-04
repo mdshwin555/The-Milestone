@@ -20,14 +20,13 @@ import '../../address/viewAddress.dart';
 import '../../home/controller/home_controller.dart';
 import '../../shipment/screen/widgets/shipments_widgets/FilterButton.dart';
 import '../controller/settings_controller.dart';
+import 'event_info_screen.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final HomeController controller = Get.put(HomeController());
-    final SettingsController settingsController = Get.put(SettingsController());
 
     return Scaffold(
       appBar: const TCAppBar(
@@ -88,7 +87,9 @@ class SettingsScreen extends StatelessWidget {
                     return Padding(
                       padding: EdgeInsets.only(top: 6.w),
                       child: GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Get.to(EventInfoScreen());
+                        },
                         child: Container(
                           alignment: Alignment.center,
                           height: 40.h,
@@ -123,53 +124,96 @@ class SettingsScreen extends StatelessWidget {
                               ),
                               Padding(
                                 padding: EdgeInsets.only(top: 2.h, right: 1.w),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                child: Row(
                                   children: [
-                                    Text(
-                                      'CHAMPION LEAGUE',
-                                      style: CustomTextStyle.headlineTextStyle
-                                          .apply(
-                                              fontSizeFactor: 0.7,
-                                              color: TColors.primary,
-                                              fontSizeDelta: 1.3,
-                                              fontWeightDelta: 2),
+                                    SizedBox(
+                                      width: 3.w,
                                     ),
-                                    CustomSizedBox.textSpacingVertical(),
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
+                                    Container(
+                                      alignment: Alignment.center,
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 4.w, vertical: 1.h),
+                                      decoration: BoxDecoration(
+                                        color: TColors.primary,
+                                        borderRadius:
+                                            BorderRadius.circular(10.sp),
+                                      ),
+                                      child: Column(
+                                        children: [
+                                          Text(
+                                            '20th',
+                                            style: TextStyle(
+                                              color: TColors.white,
+                                              fontSize: 12.sp,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          Text(
+                                            'DEC',
+                                            style: TextStyle(
+                                              color: TColors.white,
+                                              fontSize: 10.sp,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Spacer(),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.end,
                                       children: [
                                         Text(
-                                          '04:00 pm',
-                                          style: CustomTextStyle.greyTextStyle,
-                                          textDirection: TextDirection.ltr,
+                                          'CHAMPION LEAGUE',
+                                          style: CustomTextStyle
+                                              .headlineTextStyle
+                                              .apply(
+                                                  fontSizeFactor: 0.7,
+                                                  color: TColors.primary,
+                                                  fontSizeDelta: 1.3,
+                                                  fontWeightDelta: 2),
                                         ),
-                                        SizedBox(
-                                          width: 2.w,
+                                        CustomSizedBox.textSpacingVertical(),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.end,
+                                          children: [
+                                            Text(
+                                              '04:00 pm',
+                                              style:
+                                                  CustomTextStyle.greyTextStyle,
+                                              textDirection: TextDirection.ltr,
+                                            ),
+                                            SizedBox(
+                                              width: 2.w,
+                                            ),
+                                            Icon(
+                                              Icons.watch_later_outlined,
+                                              color: TColors.textGrey,
+                                              size: 15.sp,
+                                            ),
+                                          ],
                                         ),
-                                        Icon(
-                                          Icons.watch_later_outlined,
-                                          color: TColors.textGrey,
-                                          size: 15.sp,
-                                        ),
-                                      ],
-                                    ),
-                                    CustomSizedBox.textSpacingVertical(),
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: [
-                                        Text(
-                                          'Whdeh club Playground',
-                                          style: CustomTextStyle.greyTextStyle,
-                                          textDirection: TextDirection.ltr,
-                                        ),
-                                        SizedBox(
-                                          width: 2.w,
-                                        ),
-                                        Icon(
-                                          Icons.map_outlined,
-                                          color: TColors.textGrey,
-                                          size: 15.sp,
+                                        CustomSizedBox.textSpacingVertical(),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.end,
+                                          children: [
+                                            Text(
+                                              'Whdeh club Playground',
+                                              style:
+                                                  CustomTextStyle.greyTextStyle,
+                                              textDirection: TextDirection.ltr,
+                                            ),
+                                            SizedBox(
+                                              width: 2.w,
+                                            ),
+                                            Icon(
+                                              Icons.map_outlined,
+                                              color: TColors.textGrey,
+                                              size: 15.sp,
+                                            ),
+                                          ],
                                         ),
                                       ],
                                     ),

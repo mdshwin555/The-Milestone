@@ -8,6 +8,8 @@ import '../../../common/styles/custom_textstyle.dart';
 import '../../../common/widgets/colored_app_bar.dart';
 import '../../../common/widgets/custom_sized_box.dart';
 import '../../../utils/constants/image_strings.dart';
+import '../../shipment/screen/tracking_screen.dart';
+import 'course_info_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -38,8 +40,7 @@ class HomeScreen extends StatelessWidget {
                 padding: EdgeInsets.only(top: 2.w),
                 child: GestureDetector(
                   onTap: () {
-                    // Get.to(TrackingScreen(
-                    //     shipmentId: shipment.shipmentId));
+                    Get.to(CourseInfoScreen());
                   },
                   child: Stack(
                     children: [

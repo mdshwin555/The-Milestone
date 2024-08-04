@@ -55,8 +55,19 @@ class TImages {
   static const String tcappbar = "$images/tcappbar.png";
   static const String placement = "$images/placement.png";
   static const String Placement_Test = "$images/Placement_Test.png";
+  static const String header_image = "$images/header_image.png";
+  static const String map_image = "$images/map_image.png";
+  static const String course_info = "$images/course_info.png";
+  static const String teacher = "$images/teacher.png";
+  static const String ribbon = "$images/ribbon.png";
+  static const String teacher_female = "$images/teacher_female.png";
+  static const String certificate = "$images/certificate.png";
 
 
+
+  static const String facebook = "$images/facebook.png";
+  static const String telegram = "$images/telegram.png";
+  static const String instagram = "$images/instagram.png";
 
 }
 

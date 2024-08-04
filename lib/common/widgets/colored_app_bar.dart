@@ -47,14 +47,14 @@ class TCAppBar extends StatelessWidget implements PreferredSizeWidget {
           children: [
             Positioned(
               top: 5.h,
-              right: 5.w,
+              left: -2.w,
               child: Row(
                 children: [
                   if (showBackArrow)
                     IconButton(
                       onPressed: () => Get.back(),
                       icon: Icon(
-                        Icons.arrow_back_ios,
+                        Icons.arrow_forward_ios_sharp,
                         size: 21.sp,
                         color: TColors.white,
                       ),
