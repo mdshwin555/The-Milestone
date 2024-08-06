@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:shipment_merchent_app/common/widgets/app_bar.dart';
 import 'package:shipment_merchent_app/common/widgets/custom_sized_box.dart';
+import 'package:shipment_merchent_app/features/personalization/screens/contact_us_screen.dart';
 import 'package:shipment_merchent_app/features/personalization/screens/privacy_policy_screen.dart';
 import 'package:shipment_merchent_app/features/personalization/screens/profile_screen.dart';
 import 'package:shipment_merchent_app/features/personalization/screens/widgets/settings_widgets/setting_section.dart';
@@ -97,6 +98,13 @@ class SettingsScreen extends StatelessWidget {
                         icon: Icons.info_outline_rounded,
                         onTap: () {
                           Get.to(AboutAppScreen());
+                        },
+                      ),
+                      CustomListTile(
+                        title: 'تواصل معنا',
+                        icon: Icons.contact_support,
+                        onTap: () {
+                          Get.to(ContactUsScreen());
                         },
                       ),
                       CustomListTile(
