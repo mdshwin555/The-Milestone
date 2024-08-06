@@ -17,10 +17,12 @@ import '../../home/controller/home_controller.dart';
 import '../../home/screen/qrsearch_screen.dart';
 import '../../home/screen/search_screen.dart';
 import '../controller/shimpments_controller.dart';
+import '../controller/tracking_controller.dart';
 
 class ShipmentScreen extends StatelessWidget {
   final ShipmentsController controller = Get.put(ShipmentsController());
   final HomeController controller1 = Get.put(HomeController());
+
 
   ShipmentScreen({Key? key}) : super(key: key);
 
@@ -71,7 +73,6 @@ class ShipmentScreen extends StatelessWidget {
                         height: 20.h,
                       ),
                       SizedBox(height: 2.h),
-                      // Add some spacing between the animation and the text
                       Text(
                         'جاري تحميل الشحنات',
                         style: TextStyle(
@@ -183,7 +184,7 @@ class ShipmentScreen extends StatelessWidget {
                         SizedBox(height: 4.h),
                         Obx(() {
                           if (controller.isLoading.value) {
-                            return ShippmentShimmerWidget(); // Use the Shimmer Widget when loading
+                            return ShippmentShimmerWidget();
                           }
                           return Container(
                             height: 47.6.h,
@@ -231,6 +232,8 @@ class ShipmentScreen extends StatelessWidget {
                               shrinkWrap: true,
                               itemBuilder: (context, index) {
                                 final shipment = controller.filteredShipments[index];
+                                final TrackingController tracking_Controller = Get.put(TrackingController(shipmentId:  shipment.shipmentId));
+
                                 return Padding(
                                   padding: EdgeInsets.only(top: 6.w),
                                   child: GestureDetector(

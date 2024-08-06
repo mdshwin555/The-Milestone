@@ -36,7 +36,8 @@ class HomeScreen extends StatelessWidget {
         body: Directionality(
           textDirection: TextDirection.rtl,
           child: Padding(
-            padding: EdgeInsets.only(top: 2.h, left: 5.w, right: 5.w,bottom: 1.h),
+            padding: EdgeInsets.only(
+                top: 2.h, left: 5.w, right: 5.w, bottom: 1.h),
             child: RefreshIndicator(
               onRefresh: () async {
                 await controller.fetchHomeData();

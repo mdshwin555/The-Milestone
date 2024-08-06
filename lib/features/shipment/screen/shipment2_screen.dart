@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:shipment_merchent_app/features/shipment/screen/widgets/add_shipment_widgets/bottom_navigation_container.dart';
 import 'package:shipment_merchent_app/features/shipment/screen/widgets/add_shipment_widgets/shipment_summarry.dart';
 import 'package:sizer/sizer.dart';
@@ -91,7 +93,7 @@ class ShipmentStep2Screen extends StatelessWidget {
                               Expanded(
                                 child: Obx(() {
                                   if (controller.shippingTypes.isEmpty) {
-                                    return Center(child: CircularProgressIndicator()); // Show loading indicator if shipping types are not loaded yet
+                                    return Center(child: CircularProgressIndicator( color: TColors.primary,)); // Show loading indicator if shipping types are not loaded yet
                                   } else {
                                     return DropdownButtonFormField<String>(
                                       value: controller.shipmentType.value.isEmpty ? null : controller.shipmentType.value,
@@ -177,7 +179,7 @@ class ShipmentStep2Screen extends StatelessWidget {
                               Expanded(
                                 child: ShipmentTextField(
                                   hintText: 'وزن الشحنة (كغ)',
-                                  icon: Icons.line_weight,
+                                  icon: CupertinoIcons.gauge,
                                   controller: shipmentWeightController,
                                   keyboardType: TextInputType.number,
                                   onChanged: (value) {
@@ -228,6 +230,7 @@ class ShipmentStep2Screen extends StatelessWidget {
                         shipmentWeightController.text.isEmpty ||
                         shipmentQuantityController.text.isEmpty ||
                         shipmentContentsController.text.isEmpty) {
+
                       Get.snackbar(
                         'خطأ',
                         'يرجى ملء جميع الحقول ',
@@ -237,6 +240,29 @@ class ShipmentStep2Screen extends StatelessWidget {
                         margin: EdgeInsets.all(10),
                         borderRadius: 10,
                         icon: Icon(Icons.error_outline, color: TColors.white),
+                        titleText: Directionality(
+                          textDirection: TextDirection.rtl,
+                          child: Text(
+                            'خطأ',
+                            style: TextStyle(
+                              fontSize: 12.sp,
+                              fontWeight: FontWeight.bold,
+                              color: TColors.white,
+                              fontFamily: 'Cairo',
+                            ),
+                          ),
+                        ),
+                        messageText: Directionality(
+                          textDirection: TextDirection.rtl,
+                          child: Text(
+                            'يرجى ملء جميع الحقول ',
+                            style: TextStyle(
+                              fontSize: 10.sp,
+                              color: TColors.white,
+                              fontFamily: 'Cairo',
+                            ),
+                          ),
+                        ),
                       );
                     } else {
                       controller.shipmentWeight.value =

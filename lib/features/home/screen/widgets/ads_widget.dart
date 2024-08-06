@@ -49,7 +49,7 @@ class AdsWidget extends StatelessWidget {
                       child: const Icon(Icons.photo, color: Colors.white30, size: 128.0),
                     ),
                     loadingBuilder: (context, progress, chunkEvent) =>
-                        Center(child: CircularProgressIndicator(value: progress)),
+                        Center(child: CircularProgressIndicator(value: progress, color: TColors.primary,)),
                     errorBuilder: (context, error) => Container(
                       color: const Color(0xFF6F6D6A),
                       alignment: Alignment.center,

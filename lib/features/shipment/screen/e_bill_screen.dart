@@ -11,6 +11,7 @@ import 'package:shipment_merchent_app/features/shipment/screen/widgets/add_shipm
 import 'package:sizer/sizer.dart';
 import '../../../navigation_menu.dart';
 import '../../../utils/constants/colors.dart';
+import '../../home/controller/home_controller.dart';
 import '../controller/add_shipment_controller.dart';
 
 class EBillScreen extends StatelessWidget {
@@ -19,6 +20,7 @@ class EBillScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AddShipmentController controller = Get.find<AddShipmentController>();
+    final HomeController home_controller = Get.put(HomeController());
 
     return Scaffold(
       resizeToAvoidBottomInset: true,
@@ -33,6 +35,7 @@ class EBillScreen extends StatelessWidget {
       body: WillPopScope(
         onWillPop: () async {
           controller.resetFields();
+          home_controller.fetchHomeData();
           Get.to(() => NavigationMenu());
           return false;
         },

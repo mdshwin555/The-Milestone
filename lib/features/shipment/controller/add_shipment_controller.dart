@@ -9,6 +9,7 @@ import 'package:shipment_merchent_app/features/shipment/screen/shipment1_screen.
 import 'package:shipment_merchent_app/features/shipment/screen/shipment2_screen.dart';
 import 'package:shipment_merchent_app/features/shipment/screen/shipment3_screen.dart';
 import 'package:http/http.dart' as http;
+import 'package:sizer/sizer.dart';
 import 'dart:convert';
 import '../../../core/integration/crud.dart';
 import '../../../core/services/storage_service.dart';
@@ -116,6 +117,7 @@ class AddShipmentController extends GetxController {
       if (recipientName.value.isEmpty ||
           recipientAddress.value.isEmpty ||
           recipientPhone.value.isEmpty) {
+
         Get.snackbar(
           'خطأ',
           'يرجى ملء جميع الحقول ',
@@ -125,6 +127,29 @@ class AddShipmentController extends GetxController {
           margin: EdgeInsets.all(10),
           borderRadius: 10,
           icon: Icon(Icons.error_outline, color: TColors.white),
+          titleText: Directionality(
+            textDirection: TextDirection.rtl,
+            child: Text(
+              'خطأ',
+              style: TextStyle(
+                fontSize: 12.sp,
+                fontWeight: FontWeight.bold,
+                color: TColors.white,
+                fontFamily: 'Cairo',
+              ),
+            ),
+          ),
+          messageText: Directionality(
+            textDirection: TextDirection.rtl,
+            child: Text(
+              'يرجى ملء جميع الحقول ',
+              style: TextStyle(
+                fontSize: 10.sp,
+                color: TColors.white,
+                fontFamily: 'Cairo',
+              ),
+            ),
+          ),
         );
         return;
       }
@@ -294,17 +319,40 @@ class AddShipmentController extends GetxController {
       final data = json.decode(response.body);
       if (data['status'] == true) {
         shipmentNumber.value = data['shipment_number'];
-        shipmentId.value = data['shipment_id']; // Update shipmentId
+        shipmentId.value = data['shipment_id'];
+
         Get.snackbar(
           'نجاح',
           'تم إضافة الشحنة بنجاح',
           backgroundColor: TColors.primary,
-          colorText: Colors.white,
+          colorText: TColors.white,
           snackPosition: SnackPosition.TOP,
           margin: EdgeInsets.all(10),
           borderRadius: 10,
-          icon: Icon(Icons.check_circle_outline, color: Colors.white),
-          duration: Duration(seconds: 5),
+          icon: Icon(Icons.error_outline, color: TColors.white),
+          titleText: Directionality(
+            textDirection: TextDirection.rtl,
+            child: Text(
+              'نجاح',
+              style: TextStyle(
+                fontSize: 12.sp,
+                fontWeight: FontWeight.bold,
+                color: TColors.white,
+                fontFamily: 'Cairo',
+              ),
+            ),
+          ),
+          messageText: Directionality(
+            textDirection: TextDirection.rtl,
+            child: Text(
+              'تم إضافة الشحنة بنجاح',
+              style: TextStyle(
+                fontSize: 10.sp,
+                color: TColors.white,
+                fontFamily: 'Cairo',
+              ),
+            ),
+          ),
         );
         Get.to(EBillScreen());
       } else {

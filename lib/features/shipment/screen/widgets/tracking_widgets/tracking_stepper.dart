@@ -6,6 +6,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import '../../../../../utils/constants/colors.dart';
 import '../../../../Qr_code/screen/Qr_code_display_screen.dart';
 import '../../../../../common/styles/custom_textstyle.dart';
+import '../../../controller/shimpments_controller.dart';
 import '../../../controller/tracking_controller.dart';
 import '../add_shipment_widgets/shipment_text_field.dart';
 
@@ -35,6 +36,7 @@ class TrackingStepper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TrackingController controller = Get.find<TrackingController>();
+
 
     List<Map<String, String>> steps = [
       {'title': 'بانتظار القبول'},
@@ -200,6 +202,8 @@ class TrackingStepper extends StatelessWidget {
   }
 
   void _showCancelDialog(BuildContext context, TrackingController controller) {
+    final ShipmentsController shipmentsController = Get.put(ShipmentsController());
+
     showDialog(
       context: context,
       builder: (context) {
@@ -227,6 +231,7 @@ class TrackingStepper extends StatelessWidget {
               onPressed: () {
                 controller.cancelShipment();
                 Navigator.of(context).pop();
+                shipmentsController.fetchShipments();
               },
               child: Text(
                 'نعم',

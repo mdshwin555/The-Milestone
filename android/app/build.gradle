@@ -23,7 +23,8 @@ if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
 
-android {
+android {0
+
     namespace "com.kwickly.app"
     compileSdk 34
     ndkVersion flutter.ndkVersion

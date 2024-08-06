@@ -21,14 +21,23 @@ class NotificationScreen extends StatelessWidget {
 
   IconData _getIconForNotification(String title) {
     switch (title) {
-      case 'المندوب قبل شحنتك':
+      case 'تم قبول شحنتك':
         return Icons.check_circle_outline;
       case 'مشكلة في الشحنة':
-        return Icons.error_outline;
+        return Icons.warning;
+      case 'المندوب في الطريق إليك':
+        return Icons.directions_car;
+      case 'المندوب أرجع شحنتك':
+        return Icons.undo;
+      case 'الشحنة وصلت للعميل':
+        return Icons.location_on;
+      case 'تم تقييمك':
+        return Icons.star;
       default:
         return Icons.notifications;
     }
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +81,25 @@ class NotificationScreen extends StatelessWidget {
                   );
                 } else if (snapshot.hasError) {
                   return Center(
-                    child: Text('Failed to load notifications'),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          TImages.no_connection,
+                          height: 20.h,
+                        ),
+                        SizedBox(height: 2.h),
+                        Text(
+                          'يبدو أننا نواجه خطأ فني. يرجى المحاولة لاحقًا.',
+                          style: TextStyle(
+                            fontSize: 12.sp,
+                            color: TColors.darkGrey,
+                            fontFamily: 'Cairo',
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
                   );
                 } else {
                   return Obx(() {

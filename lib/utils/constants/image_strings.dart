@@ -16,6 +16,8 @@ class TImages {
 
   // -- Loading
   static const String loading = "$gifs/loading.json";
+  static const String no_connection = "assets/gifs/sammy-line-no-connection.gif";
+
 
 
   static const String kwickly = "$images/kwickly.png";

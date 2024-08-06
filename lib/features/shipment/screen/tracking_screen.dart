@@ -21,7 +21,7 @@ class TrackingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TrackingController controller = Get.put(TrackingController(shipmentId: shipmentId));
+    final TrackingController controller = Get.put(TrackingController(shipmentId: shipmentId), tag: shipmentId.toString());
     final ShipmentsController shipmentsController = Get.put(ShipmentsController());
 
     return DefaultTabController(
@@ -104,12 +104,15 @@ class TrackingScreen extends StatelessWidget {
                               height: 50.h,
                               child: Obx(() {
                                 if (controller.polylineCoordinates.isEmpty) {
-                                  return Center(child: CircularProgressIndicator());
+                                  return Center(child: CircularProgressIndicator(color: TColors.primary));
                                 }
                                 final recipientInfo = controller.recipientInfo.value;
                                 final merchantInfo = controller.merchantInfo.value;
                                 return maps.GoogleMap(
                                   zoomGesturesEnabled: true,
+                                  scrollGesturesEnabled: true,
+                                  tiltGesturesEnabled: true,
+                                  rotateGesturesEnabled: true,
                                   onMapCreated: controller.onMapCreated,
                                   zoomControlsEnabled: false,
                                   initialCameraPosition: maps.CameraPosition(
@@ -220,3 +223,4 @@ class TrackingScreen extends StatelessWidget {
     );
   }
 }
+

@@ -31,8 +31,31 @@ class RecipentAddressDetailScreen extends StatelessWidget {
       margin: EdgeInsets.all(10),
       borderRadius: 10,
       icon: Icon(Icons.error_outline, color: TColors.white),
-      duration: Duration(seconds: 5),
+      titleText: Directionality(
+        textDirection: TextDirection.rtl,
+        child: Text(
+          'خطأ',
+          style: TextStyle(
+            fontSize: 12.sp,
+            fontWeight: FontWeight.bold,
+            color: TColors.white,
+            fontFamily: 'Cairo',
+          ),
+        ),
+      ),
+      messageText: Directionality(
+        textDirection: TextDirection.rtl,
+        child: Text(
+          message,
+          style: TextStyle(
+            fontSize: 10.sp,
+            color: TColors.white,
+            fontFamily: 'Cairo',
+          ),
+        ),
+      ),
     );
+
   }
 
   @override
@@ -56,7 +79,7 @@ class RecipentAddressDetailScreen extends StatelessWidget {
                   future: mpController.initialize(),
                   builder: (context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
-                      return Center(child: CircularProgressIndicator());
+                      return Center(child: CircularProgressIndicator( color: TColors.primary,));
                     } else if (snapshot.hasError) {
                       return Center(child: Text('Error: ${snapshot.error}'));
                     } else {
@@ -85,7 +108,7 @@ class RecipentAddressDetailScreen extends StatelessWidget {
                   textDirection: TextDirection.rtl,
                   child: Obx(() {
                     if (_controller.isLoading.value) {
-                      return Center(child: CircularProgressIndicator());
+                      return Center(child: CircularProgressIndicator( color: TColors.primary,));
                     }
                     return DropdownButtonFormField<String>(
                       value: _selectedOption.value.isEmpty ? null : _selectedOption.value,
@@ -177,6 +200,29 @@ class RecipentAddressDetailScreen extends StatelessWidget {
                               margin: EdgeInsets.all(10),
                               borderRadius: 10,
                               icon: Icon(Icons.error_outline, color: TColors.white),
+                              titleText: Directionality(
+                                textDirection: TextDirection.rtl,
+                                child: Text(
+                                  'خطأ',
+                                  style: TextStyle(
+                                    fontSize: 12.sp,
+                                    fontWeight: FontWeight.bold,
+                                    color: TColors.white,
+                                    fontFamily: 'Cairo',
+                                  ),
+                                ),
+                              ),
+                              messageText: Directionality(
+                                textDirection: TextDirection.rtl,
+                                child: Text(
+                                  'يرجى ملء جميع الحقول ',
+                                  style: TextStyle(
+                                    fontSize: 10.sp,
+                                    color: TColors.white,
+                                    fontFamily: 'Cairo',
+                                  ),
+                                ),
+                              ),
                             );
                           } else {
                             shipmentController.recipientLat.value = selectedLocation.latitude;

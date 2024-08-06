@@ -86,17 +86,40 @@ class AddressController extends GetxController {
     required String long,
   }) async {
     if (details.isEmpty || cityId.isEmpty || lat.isEmpty || long.isEmpty) {
+
       Get.snackbar(
         'خطأ',
-        'يرجى ملء جميع الحقول',
+        'يرجى ملء جميع الحقول ',
         backgroundColor: TColors.error,
         colorText: TColors.white,
         snackPosition: SnackPosition.TOP,
         margin: EdgeInsets.all(10),
         borderRadius: 10,
         icon: Icon(Icons.error_outline, color: TColors.white),
+        titleText: Directionality(
+          textDirection: TextDirection.rtl,
+          child: Text(
+            'خطأ',
+            style: TextStyle(
+              fontSize: 12.sp,
+              fontWeight: FontWeight.bold,
+              color: TColors.white,
+              fontFamily: 'Cairo',
+            ),
+          ),
+        ),
+        messageText: Directionality(
+          textDirection: TextDirection.rtl,
+          child: Text(
+            'يرجى ملء جميع الحقول ',
+            style: TextStyle(
+              fontSize: 10.sp,
+              color: TColors.white,
+              fontFamily: 'Cairo',
+            ),
+          ),
+        ),
       );
-
       return;
     }
 
@@ -127,12 +150,34 @@ class AddressController extends GetxController {
             'نجاح',
             'تمت إضافة العنوان بنجاح',
             backgroundColor: TColors.primary,
-            colorText: Colors.white,
+            colorText: TColors.white,
             snackPosition: SnackPosition.TOP,
             margin: EdgeInsets.all(10),
             borderRadius: 10,
-            icon: Icon(Icons.check_circle_outline, color: Colors.white),
-            duration: Duration(seconds: 5),
+            icon: Icon(Icons.error_outline, color: TColors.white),
+            titleText: Directionality(
+              textDirection: TextDirection.rtl,
+              child: Text(
+                'نجاح',
+                style: TextStyle(
+                  fontSize: 12.sp,
+                  fontWeight: FontWeight.bold,
+                  color: TColors.white,
+                  fontFamily: 'Cairo',
+                ),
+              ),
+            ),
+            messageText: Directionality(
+              textDirection: TextDirection.rtl,
+              child: Text(
+                'تمت إضافة العنوان بنجاح',
+                style: TextStyle(
+                  fontSize: 10.sp,
+                  color: TColors.white,
+                  fontFamily: 'Cairo',
+                ),
+              ),
+            ),
           );
           controller.fetchHomeData();
         } else {

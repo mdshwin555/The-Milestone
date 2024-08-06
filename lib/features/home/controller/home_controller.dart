@@ -6,6 +6,7 @@ import 'package:shipment_merchent_app/core/services/storage_service.dart';
 import 'package:shipment_merchent_app/navigation_menu.dart';
 import 'package:shipment_merchent_app/utils/constants/api_constants.dart';
 import 'package:shipment_merchent_app/utils/constants/colors.dart';
+import 'package:sizer/sizer.dart';
 import '../../../common/styles/custom_textstyle.dart';
 import '../model/home_model.dart';
 
@@ -221,13 +222,36 @@ class HomeController extends GetxController {
             'نجاح',
             'تم إرجاع الشحنة بنجاح',
             backgroundColor: TColors.primary,
-            colorText: Colors.white,
+            colorText: TColors.white,
             snackPosition: SnackPosition.TOP,
             margin: EdgeInsets.all(10),
             borderRadius: 10,
-            icon: Icon(Icons.check_circle_outline, color: Colors.white),
-            duration: Duration(seconds: 5),
+            icon: Icon(Icons.error_outline, color: TColors.white),
+            titleText: Directionality(
+              textDirection: TextDirection.rtl,
+              child: Text(
+                'نجاح',
+                style: TextStyle(
+                  fontSize: 12.sp,
+                  fontWeight: FontWeight.bold,
+                  color: TColors.white,
+                  fontFamily: 'Cairo',
+                ),
+              ),
+            ),
+            messageText: Directionality(
+              textDirection: TextDirection.rtl,
+              child: Text(
+                'تم إرجاع الشحنة بنجاح',
+                style: TextStyle(
+                  fontSize: 10.sp,
+                  color: TColors.white,
+                  fontFamily: 'Cairo',
+                ),
+              ),
+            ),
           );
+
           return true;
         } else {
           isLoading.value = false;

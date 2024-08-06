@@ -162,7 +162,7 @@ class TrackingController extends GetxController {
 
         Get.snackbar(
           'نجاح',
-          'تم حذف شحنتك بنجاح',
+          'تم إلغاء شحنتك بنجاح',
           backgroundColor: TColors.primary,
           colorText: TColors.white,
           snackPosition: SnackPosition.TOP,
@@ -184,7 +184,7 @@ class TrackingController extends GetxController {
           messageText: Directionality(
             textDirection: TextDirection.rtl,
             child: Text(
-              'تم حذف شحنتك بنجاح',
+              'تم إلغاء شحنتك بنجاح',
               style: TextStyle(
                 fontSize: 10.sp,
                 color: TColors.white,
