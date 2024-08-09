@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
-
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/image_strings.dart';
 
@@ -150,7 +149,7 @@ class ContactInfoScreen extends StatelessWidget {
               ),
             ),
             Transform.translate(
-              offset: Offset(0, -12.h),
+              offset: Offset(0, -15.h),
               child: Container(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
@@ -179,7 +178,7 @@ class ContactInfoScreen extends StatelessWidget {
                         ),
                         Image.asset(TImages.telegram),
                         SizedBox(
-                          width: 2.w,
+                          width: 3.w,
                         ),
                         Image.asset(TImages.instagram),
                       ],

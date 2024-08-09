@@ -20,7 +20,7 @@ class ProfileButtons extends StatelessWidget {
     return Column(
       children: [
         TButton(
-          text: 'تسجيل خروج',
+          text: 'Log out',
           onPressed: () {
             // controller.editProfile(
             //   controller.nameController.text,

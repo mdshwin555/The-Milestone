@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:shipment_merchent_app/common/widgets/app_bar.dart';
 import 'package:shipment_merchent_app/features/personalization/screens/widgets/profile_widgets/profile_buttons.dart';
 import 'package:shipment_merchent_app/utils/constants/colors.dart';
 import 'package:sizer/sizer.dart';
 import '../../../common/widgets/colored_app_bar.dart';
 import '../../../common/widgets/custom_sized_box.dart';
-import '../../../common/widgets/custom_shapes/containers/common_container.dart';
 import '../controller/profile_controller.dart';
 import '../../../common/widgets/text_field.dart';
 
@@ -18,7 +16,6 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ProfileController controller = Get.put(ProfileController());
-
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: const TCAppBar(

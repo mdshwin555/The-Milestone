@@ -47,10 +47,11 @@ class TeacherDetailsScreen extends StatelessWidget {
           padding: EdgeInsets.all(5.w),
           child: SingleChildScrollView(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ClipRRect(
                       borderRadius: BorderRadius.horizontal(
@@ -58,14 +59,14 @@ class TeacherDetailsScreen extends StatelessWidget {
                       ),
                       child: Image.asset(
                         TImages.teacher_female,
-                        width: 50.w,
-                        height: 30.h,
+                        width: 54.w,
+                        height: 35.h,
                         fit: BoxFit.cover,
                       ),
                     ),
                     Container(
-                      width: 35.w,
-                      height: 30.h,
+                      width: 34.w,
+                      height: 35.h,
                       padding: EdgeInsets.all(3.w),
                       decoration: BoxDecoration(
                         color: TColors.primary,
@@ -74,7 +75,8 @@ class TeacherDetailsScreen extends StatelessWidget {
                         ),
                       ),
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Text(
                             '5 Years',
@@ -91,7 +93,7 @@ class TeacherDetailsScreen extends StatelessWidget {
                                 fontSize: 10.sp,
                                 fontFamily: 'Cairo'),
                           ),
-                          SizedBox(height: 2.h),
+                          Divider(color: Colors.white, thickness: 0.5, indent: 20, endIndent: 20),  // Divider added here
                           Text(
                             '32',
                             style: TextStyle(
@@ -107,7 +109,7 @@ class TeacherDetailsScreen extends StatelessWidget {
                                 fontSize: 10.sp,
                                 fontFamily: 'Cairo'),
                           ),
-                          SizedBox(height: 2.h),
+                          Divider(color: Colors.white, thickness: 0.5, indent: 20, endIndent: 20),  // Another Divider
                           Text(
                             '150',
                             style: TextStyle(
@@ -132,34 +134,38 @@ class TeacherDetailsScreen extends StatelessWidget {
                 Text(
                   'Ms. Ghinwa Alkanj',
                   style: TextStyle(
-                    color: Colors.blue,
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.bold,
+                      color: TColors.primary,
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Cairo'
                   ),
                 ),
                 SizedBox(height: 1.h),
                 Text(
                   'Master at Damascus University\nEnglish Literature\nMaster in English Business\nTesol International Association',
                   style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 12.sp,
+                      color: Colors.grey,
+                      fontSize: 12.sp,
+                      fontFamily: 'Cairo'
                   ),
                 ),
-                SizedBox(height: 2.h),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Image.asset(
-                      TImages.certificate,
-                      width: 45.w,
-                      fit: BoxFit.cover,
-                    ),
-                    Image.asset(
-                      TImages.certificate,
-                      width: 45.w,
-                      fit: BoxFit.cover,
-                    ),
-                  ],
+                SizedBox(height: 3.h),
+                Container(
+                  height: 20.h,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 4,  // عدد الشهادات
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: EdgeInsets.only(right: 4.w),
+                        child: Image.asset(
+                          'assets/images/certificate.png',
+                          width: 58.w,
+                          fit: BoxFit.cover,
+                        ),
+                      );
+                    },
+                  ),
                 ),
               ],
             ),
